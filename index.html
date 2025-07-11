@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Karthik's Web Zone</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #f0f0f0;
+    }
+    header, nav, section, footer {
+      background-color: rgba(0,0,0,0.6);
+      padding: 20px;
+      margin: 10px;
+      border-radius: 12px;
+    }
+    nav { display: flex; justify-content: center; gap: 20px; }
+    nav a { color: #ffcc00; text-decoration: none; font-weight: bold; }
+    h2 { color: #ffcc00; }
+    .works { display: flex; flex-wrap: wrap; gap: 20px; }
+    .work-card { flex: 1 1 300px; background: #111; padding: 20px; border-radius: 10px; color: white; }
+    canvas { background: #000; display: block; margin: 10px auto; }
+    .hobbies {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .hobby {
+      background: #222;
+      padding: 15px;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+    }
+    .hobby img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="karthik.png" alt="Karthik Rajesh" style="width:200px; height:auto; border-radius:12px; display:block; margin: 10px auto;" />
+    <h1 style="font-family: Algerian, serif; color: red; font-weight: bold; text-align:center; margin-top: 0;">Karthik Rajesh</h1>
+    <p>14-year-old tech enthusiast from Fujairah, UAE</p>
+  </header>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#hobbies">Hobbies</a>
+    <a href="#works">My Works</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <section id="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm <strong>Karthik Rajesh</strong>, a 14-year-old student at <strong>Eminence Private School</strong>, located in Fujairah, UAE. I was born on <strong>February 14, 2011</strong>, in the beautiful town of <strong>Alappuzha, Kerala, India</strong>.</p>
+    <p>I am passionate about <strong>technology, electronics, physics, and mathematics</strong>. I love creating digital projects, experimenting with new ideas, and sharing them with the world. I built this website completely using only HTML!</p>
+  </section>
+  <section id="hobbies">
+    <h2>My Hobbies</h2>
+    <div class="hobbies">
+      <div class="hobby">
+        <img src="studying.png" alt="Studying" />
+        <h3>Studying</h3>
+      </div>
+      <div class="hobby">
+        <img src="playingfootball.png" alt="Playing Football" />
+        <h3>Playing Football</h3>
+      </div>
+      <div class="hobby">
+        <img src="martialarts.png" alt="Martial Arts" />
+        <h3>Martial Arts</h3>
+      </div>
+    </div>
+  </section>
+  <section id="works">
+    <h2>My Works</h2>
+    <div class="works">
+      <div class="work-card">
+        <h3>Snake Game</h3>
+        <p>A simple snake game created using HTML5 canvas and JavaScript.</p>
+        <canvas id="snakeGame" width="300" height="300"></canvas>
+      </div>
+      <div class="work-card">
+        <h3>Calculator</h3>
+        <input id="calc-display" readonly><br>
+        <button onclick="press('7')">7</button>
+        <button onclick="press('8')">8</button>
+        <button onclick="press('9')">9</button>
+        <button onclick="press('/')">/</button><br>
+        <button onclick="press('4')">4</button>
+        <button onclick="press('5')">5</button>
+        <button onclick="press('6')">6</button>
+        <button onclick="press('*')">*</button><br>
+        <button onclick="press('1')">1</button>
+        <button onclick="press('2')">2</button>
+        <button onclick="press('3')">3</button>
+        <button onclick="press('-')">-</button><br>
+        <button onclick="press('0')">0</button>
+        <button onclick="press('.')">.</button>
+        <button onclick="clearCalc()">C</button>
+        <button onclick="press('+')">+</button><br>
+        <button onclick="calculate()">=</button>
+      </div>
+    </div>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:karthikrajesh128@gmail.com">karthikrajesh128@gmail.com</a></p>
+    <p>Location: Fujairah, UAE</p>
+  </section>
+  <footer>
+    &copy; 2025 Karthik R. | Built using only HTML | Nature vibes 🌿
+  </footer>
+  <script>
+    // Calculator logic
+    let expression = '';
+    function press(val) {
+      expression += val;
+      document.getElementById('calc-display').value = expression;
+    }
+    function clearCalc() {
+      expression = '';
+      document.getElementById('calc-display').value = '';
+    }
+    function calculate() {
+      try {
+        expression = eval(expression).toString();
+        document.getElementById('calc-display').value = expression;
+      } catch {
+        document.getElementById('calc-display').value = 'Error';
+        expression = '';
+      }
+    }
+
+    // Snake Game logic
+    const canvas = document.getElementById("snakeGame");
+    const ctx = canvas.getContext("2d");
+    const box = 20;
+    let snake = [{ x: 9 * box, y: 10 * box }];
+    let direction = "RIGHT";
+    let food = {
+      x: Math.floor(Math.random() * 15 + 1) * box,
+      y: Math.floor(Math.random() * 15 + 1) * box
+    };
+
+    document.addEventListener("keydown", dir);
+    function dir(event) {
+      if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
+      if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
+      if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
+      if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
+    }
+
+    function draw() {
+      ctx.fillStyle = "black";
+      ctx.fillRect(0, 0, 300, 300);
+
+      for (let i = 0; i < snake.length; i++) {
+        ctx.fillStyle = i === 0 ? "lime" : "white";
+        ctx.fillRect(snake[i].x, snake[i].y, box, box);
+      }
+
+      ctx.fillStyle = "red";
+      ctx.fillRect(food.x, food.y, box, box);
+
+      let snakeX = snake[0].x;
+      let snakeY = snake[0].y;
+
+      if (direction === "LEFT") snakeX -= box;
+      if (direction === "UP") snakeY -= box;
+      if (direction === "RIGHT") snakeX += box;
+      if (direction === "DOWN") snakeY += box;
+
+      if (snakeX === food.x && snakeY === food.y) {
+        food = {
+          x: Math.floor(Math.random() * 15 + 1) * box,
+          y: Math.floor(Math.random() * 15 + 1) * box
+        };
+      } else {
+        snake.pop();
+      }
+
+      const newHead = { x: snakeX, y: snakeY };
+      snake.unshift(newHead);
+
+      if (
+        snakeX < 0 || snakeY < 0 || snakeX >= 300 || snakeY >= 300 ||
+        snake.slice(1).some(seg => seg.x === snakeX && seg.y === snakeY)
+      ) {
+        clearInterval(game);
+        alert("Game Over!");
+      }
+    }
+    const game = setInterval(draw, 200);
+  </script>
+</body>
+</html>
+
