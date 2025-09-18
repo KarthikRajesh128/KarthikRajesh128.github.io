@@ -1,205 +1,318 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="_bZOxdfJxA0Q4zaKyePJ9ixzw-vdhvTROwcXtBc4YUo" />
-  <title>Karthik's Web Zone</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Karthik Rajesh - Tech enthusiast, student at Eminence Private School, UAE. Portfolio of hobbies, skills, and achievements.">
+  <title>Karthik Rajesh | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center fixed;
-      background-size: cover;
+      font-family: 'Roboto', sans-serif;
+      background: #0d0d0d;
       color: #f0f0f0;
+      line-height: 1.6;
     }
-    header, nav, section, footer {
-      background-color: rgba(0,0,0,0.6);
-      padding: 20px;
-      margin: 10px;
-      border-radius: 12px;
+    a { color: #ffcc00; text-decoration: none; }
+    a:hover { color: #ffd633; }
+
+    /* Header / Hero */
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 20px;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1950&q=80') no-repeat center center;
+      background-size: cover;
     }
-    nav { display: flex; justify-content: center; gap: 20px; }
-    nav a { color: #ffcc00; text-decoration: none; font-weight: bold; }
-    h2 { color: #ffcc00; }
-    .works { display: flex; flex-wrap: wrap; gap: 20px; }
-    .work-card { flex: 1 1 300px; background: #111; padding: 20px; border-radius: 10px; color: white; }
-    canvas { background: #000; display: block; margin: 10px auto; }
+    header img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      border: 3px solid #ffcc00;
+      object-fit: cover;
+    }
+    header h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3em;
+      margin: 15px 0 5px;
+      color: #ffcc00;
+    }
+    header p {
+      font-size: 1.3em;
+      margin: 0;
+    }
+
+    /* Navigation */
+    nav {
+      position: sticky;
+      top: 0;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      background-color: rgba(0,0,0,0.85);
+      z-index: 100;
+    }
+
+    /* Sections */
+    section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 40px 20px;
+      background-color: rgba(0,0,0,0.7);
+      border-radius: 15px;
+    }
+    section h2 {
+      color: #ffcc00;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2em;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    #about p { text-align: center; font-size: 1.2em; }
+
+    /* Hobbies */
     .hobbies {
       display: flex;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 25px;
       justify-content: center;
     }
     .hobby {
+      width: 250px;
       background: #222;
       padding: 15px;
-      border-radius: 10px;
-      width: 300px;
+      border-radius: 12px;
       text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-    .hobby img {
-      width: 100%;
-      height: 150px;
-      object-fit: cover;
-      border-radius: 8px;
+    .hobby:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 5px 20px rgba(255,204,0,0.4);
+    }
+    .hobby img { width: 100%; height: 180px; object-fit: cover; border-radius: 10px; }
+    .hobby h3 { margin-top: 10px; }
+
+    /* Skills */
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 25px;
+    }
+    .skill-card {
+      background: #222;
+      padding: 20px;
+      width: 220px;
+      text-align: center;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+    .skill-card:hover { transform: translateY(-5px); }
+
+    /* Achievements */
+    .achievements {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+      justify-content: center;
+    }
+    .achievement-card {
+      background: #222;
+      padding: 20px;
+      width: 250px;
+      text-align: center;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+    .achievement-card:hover { transform: translateY(-5px); }
+
+    /* Contact / Socials */
+    #contact p { text-align: center; margin: 10px 0; }
+    .socials { display: flex; justify-content: center; gap: 20px; margin-top: 15px; }
+    .socials a { font-size: 1.5em; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background-color: rgba(0,0,0,0.85);
+      border-top: 2px solid #ffcc00;
     }
   </style>
-<header>
-  <img src="karthik.png" alt="Karthik">
-  <h1 style="font-family: Algerian, serif; color: red; font-weight: bold; text-align:center; margin-top: 0;">Karthik Rajesh</h1>
-  <p>Born on <strong>14 February 2011</strong>, tech enthusiast from Fujairah, UAE</p>
-</header>
+</head>
+<body>
+
+  <!-- Header / Hero -->
+  <header>
+    <img src="karthik.png" alt="Karthik">
+    <h1>Karthik Rajesh</h1>
+    <p>Born on <strong>14 February 2011</strong>, tech enthusiast from Fujairah, UAE</p>
+  </header>
+
+  <!-- Navigation -->
   <nav>
     <a href="#about">About</a>
     <a href="#hobbies">Hobbies</a>
-    <a href="#works">My Works</a>
+    <a href="#skills">Skills</a>
+    <a href="#achievements">Achievements</a>
     <a href="#contact">Contact</a>
   </nav>
+
+  <!-- About Me -->
   <section id="about">
     <h2>About Me</h2>
-    <p>Hello! I'm <strong>Karthik Rajesh</strong>, a 14-year-old student at <strong>Eminence Private School</strong>, located in Fujairah, UAE. I was born on <strong>February 14, 2011</strong>, in the beautiful town of <strong>Alappuzha, Kerala, India</strong>.</p>
-    <p>I am passionate about <strong>technology, electronics, physics, and mathematics</strong>. I love creating digital projects, experimenting with new ideas, and sharing them with the world. I built this website completely using only HTML!</p>
+    <p>I’m Karthik Rajesh, a student at Eminence Private School, UAE. I love technology, electronics, AI, physics, and mathematics, and I enjoy exploring new ideas and projects.</p>
   </section>
+
+  <!-- Hobbies -->
   <section id="hobbies">
-    <h2>My Hobbies</h2>
+    <h2>Hobbies</h2>
     <div class="hobbies">
-      <div class="hobby">
-        <img src="studying.png" alt="Studying">
-        <h3>Studying</h3>
-      </div>
-      <div class="hobby">
-        <img src="playingfootball.png" alt="Playing Football">
-        <h3>Playing Football</h3>
-      </div>
-      <div class="hobby">
-        <img src="martialarts.png" alt="Martial Arts">
-        <h3>Martial Arts</h3>
-      </div>
+      <div class="hobby"><img src="studying.png" alt="Studying"><h3>Studying</h3></div>
+      <div class="hobby"><img src="playingfootball.png" alt="Football"><h3>Football</h3></div>
+      <div class="hobby"><img src="martialarts.png" alt="Martial Arts"><h3>Martial Arts</h3></div>
     </div>
   </section>
-  <section id="works">
-    <h2>My Works</h2>
-    <div class="works">
-      <div class="work-card">
-        <h3>Snake Game</h3>
-        <p>A simple snake game created using HTML5 canvas and JavaScript.</p>
-        <canvas id="snakeGame" width="300" height="300"></canvas>
-      </div>
-      <div class="work-card">
-        <h3>Calculator</h3>
-        <input id="calc-display" readonly><br>
+
+  <!-- Skills -->
+  <section id="skills">
+    <h2>Skills & Interests</h2>
+    <div class="skills">
+      <div class="skill-card">Problem Solving</div>
+      <div class="skill-card">Critical Thinking</div>
+      <div class="skill-card">Electronics & Robotics</div>
+      <div class="skill-card">AI & Technology</div>
+      <div class="skill-card">Science & Mathematics</div>
+    </div>
+  </section>
+
+<section id="calculator">
+  <h2>Calculator</h2>
+  <div style="display:flex; justify-content:center;">
+    <div id="calc-container" style="background:#111; padding:30px; border-radius:20px; width:850px; height:1150px; display:flex; flex-direction:column; align-items:center; color:white;">
+      <input id="calc-display" style="width:80%; height:100px; font-size:3em; margin-bottom:20px; border-radius:10px; text-align:right; background:#222; color:white;" readonly>
+      
+      <div style="display:grid; grid-template-columns: repeat(5, 1fr); gap:15px; width:100%;">
+        <!-- Row 1 -->
+        <button onclick="press('sin(')">sin</button>
+        <button onclick="press('cos(')">cos</button>
+        <button onclick="press('tan(')">tan</button>
+        <button onclick="press('log(')">log</button>
+        <button onclick="press('^')">^</button>
+
+        <!-- Row 2 -->
         <button onclick="press('7')">7</button>
         <button onclick="press('8')">8</button>
         <button onclick="press('9')">9</button>
-        <button onclick="press('/')">/</button><br>
+        <button onclick="press('/')">/</button>
+        <button onclick="press('(')">(</button>
+
+        <!-- Row 3 -->
         <button onclick="press('4')">4</button>
         <button onclick="press('5')">5</button>
         <button onclick="press('6')">6</button>
-        <button onclick="press('*')">*</button><br>
+        <button onclick="press('*')">*</button>
+        <button onclick="press(')')">)</button>
+
+        <!-- Row 4 -->
         <button onclick="press('1')">1</button>
         <button onclick="press('2')">2</button>
         <button onclick="press('3')">3</button>
-        <button onclick="press('-')">-</button><br>
+        <button onclick="press('-')">-</button>
+        <button onclick="press('√(')">√</button>
+
+        <!-- Row 5 -->
         <button onclick="press('0')">0</button>
         <button onclick="press('.')">.</button>
         <button onclick="clearCalc()">C</button>
-        <button onclick="press('+')">+</button><br>
+        <button onclick="press('+')">+</button>
         <button onclick="calculate()">=</button>
       </div>
     </div>
+  </div>
+</section>
+
+<script>
+  let expression = '';
+
+  function press(val) {
+    expression += val;
+    document.getElementById('calc-display').value = expression;
+  }
+
+  function clearCalc() {
+    expression = '';
+    document.getElementById('calc-display').value = '';
+  }
+
+  function calculate() {
+    try {
+      // Replace custom symbols with JS Math functions
+      let exp = expression.replace(/sin\(/g, 'Math.sin(')
+                          .replace(/cos\(/g, 'Math.cos(')
+                          .replace(/tan\(/g, 'Math.tan(')
+                          .replace(/log\(/g, 'Math.log10(')
+                          .replace(/√\(/g, 'Math.sqrt(')
+                          .replace(/\^/g, '**');
+      let result = eval(exp);
+      document.getElementById('calc-display').value = result;
+      expression = result.toString();
+    } catch {
+      document.getElementById('calc-display').value = 'Error';
+      expression = '';
+    }
+  }
+</script>
+
+<style>
+  #calc-container button {
+    padding: 25px;
+    font-size: 1.8em;
+    border-radius: 10px;
+    border: none;
+    background-color: #222;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  #calc-container button:hover {
+    background-color: #ffcc00;
+    color: black;
+  }
+</style>
+</section>
+
+  <!-- Achievements -->
+  <section id="achievements">
+    <h2>Achievements</h2>
+    <div class="achievements">
+      <div class="achievement-card">Winner, School Science Fair</div>
+      <div class="achievement-card">Certificate of Excellence in Maths</div>
+      <div class="achievement-card">Robotics Project Completed</div>
+    </div>
   </section>
+
+  <!-- Contact -->
   <section id="contact">
     <h2>Contact</h2>
     <p>Email: <a href="mailto:karthikrajesh128@gmail.com">karthikrajesh128@gmail.com</a></p>
     <p>Location: Fujairah, UAE</p>
+    <div class="socials">
+      <a href="https://github.com/" target="_blank">GitHub</a>
+          </div>
   </section>
+
+  <!-- Footer -->
   <footer>
-    &copy; 2025 Karthik R. | Built using only HTML | Nature vibes 🌿
+    &copy; 2025 Karthik R. | Professional Portfolio | Nature vibes 🌿
   </footer>
-  <script>
-    // Calculator logic
-    let expression = '';
-    function press(val) {
-      expression += val;
-      document.getElementById('calc-display').value = expression;
-    }
-    function clearCalc() {
-      expression = '';
-      document.getElementById('calc-display').value = '';
-    }
-    function calculate() {
-      try {
-        expression = eval(expression).toString();
-        document.getElementById('calc-display').value = expression;
-      } catch {
-        document.getElementById('calc-display').value = 'Error';
-        expression = '';
-      }
-    }
 
-    // Snake Game logic
-    const canvas = document.getElementById("snakeGame");
-    const ctx = canvas.getContext("2d");
-    const box = 20;
-    let snake = [{ x: 9 * box, y: 10 * box }];
-    let direction = "RIGHT";
-    let food = {
-      x: Math.floor(Math.random() * 15 + 1) * box,
-      y: Math.floor(Math.random() * 15 + 1) * box
-    };
-
-    document.addEventListener("keydown", dir);
-    function dir(event) {
-      if (event.key === "ArrowLeft" && direction !== "RIGHT") direction = "LEFT";
-      if (event.key === "ArrowUp" && direction !== "DOWN") direction = "UP";
-      if (event.key === "ArrowRight" && direction !== "LEFT") direction = "RIGHT";
-      if (event.key === "ArrowDown" && direction !== "UP") direction = "DOWN";
-    }
-
-    function draw() {
-      ctx.fillStyle = "black";
-      ctx.fillRect(0, 0, 300, 300);
-
-      for (let i = 0; i < snake.length; i++) {
-        ctx.fillStyle = i === 0 ? "lime" : "white";
-        ctx.fillRect(snake[i].x, snake[i].y, box, box);
-      }
-
-      ctx.fillStyle = "red";
-      ctx.fillRect(food.x, food.y, box, box);
-
-      let snakeX = snake[0].x;
-      let snakeY = snake[0].y;
-
-      if (direction === "LEFT") snakeX -= box;
-      if (direction === "UP") snakeY -= box;
-      if (direction === "RIGHT") snakeX += box;
-      if (direction === "DOWN") snakeY += box;
-
-      if (snakeX === food.x && snakeY === food.y) {
-        food = {
-          x: Math.floor(Math.random() * 15 + 1) * box,
-          y: Math.floor(Math.random() * 15 + 1) * box
-        };
-      } else {
-        snake.pop();
-      }
-
-      const newHead = { x: snakeX, y: snakeY };
-      snake.unshift(newHead);
-
-      if (
-        snakeX < 0 || snakeY < 0 || snakeX >= 300 || snakeY >= 300 ||
-        snake.slice(1).some(seg => seg.x === snakeX && seg.y === snakeY)
-      ) {
-        clearInterval(game);
-        alert("Game Over!");
-      }
-    }
-    const game = setInterval(draw, 200);
-  </script>
 </body>
 </html>
+
 
 
